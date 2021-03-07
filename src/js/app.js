@@ -23,6 +23,48 @@ jQuery(document).ready(function () {
     $('.icon-menu').toggleClass('_active')
     $('.menu__body').toggleClass('show')
   })
+  $('.header__menu ul li a').click(function (e) {
+    e.preventDefault()
+    $('.icon-menu').toggleClass('_active')
+    $('.menu__body').toggleClass('show')
+  })
   /* *********** */
   /* menu-burger */
+
+  /* scroll-to-section */
+  /* ************** */
+  $('a.scrollto').click(function () {
+    var elementClick = $(this).attr('href')
+    var destination = $(elementClick).offset().top
+    jQuery('html:not(:animated),body:not(:animated)').animate(
+      {
+        scrollTop: destination,
+      },
+      800
+    )
+    return false
+  })
+  /* ************** */
+  /* scroll-to-section */
+
+  /* popup */
+  /* ***** */
+  $('.modal-btn').click(function (e) {
+    e.preventDefault()
+    var destinationPopup = $(this).attr('href')
+    $(destinationPopup).addClass('show')
+
+    var closeBtn = destinationPopup + '  .popup__close'
+    var overlayBtn = destinationPopup + '  .popup__overlay'
+    $(closeBtn).click(function (e) {
+      e.preventDefault()
+      $(destinationPopup).removeClass('show')
+    })
+    $(overlayBtn).click(function (e) {
+      e.preventDefault()
+      $(destinationPopup).removeClass('show')
+    })
+  })
+  /* ***** */
+  /* popup */
 })
